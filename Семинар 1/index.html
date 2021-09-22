@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Семинар 1</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form class="form">
+      <h1>Семинар 1</h1>
+      <p>Форма для семинара 1</p>
+
+      <label for="name" class="title">Имя</label>
+      <input type="text" name="name" id="name" class="input" />
+
+      <label for="tel" class="title">Телефон</label>
+      <input type="tel" name="tel" id="tel" class="input" />
+
+      <label for="email" class="title">Email</label>
+      <input type="email" name="email" id="email" class="input" />
+
+      <label for="select" class="title">Выпадающий список</label>
+      <select name="select" id="select">
+        <option value="1">Вариант 1</option>
+        <option value="2">Вариант 2</option>
+        <option value="3">Вариант 3</option>
+      </select>
+
+      <label class="title">Переключатели</label>
+      <div>
+        <input type="radio" name="radio" id="radio1" />
+        <label for="radio1">Переключатель 1</label>
+      </div>
+      <div>
+        <input type="radio" name="radio" id="radio2" />
+        <label for="radio2">Переключатель 2</label>
+      </div>
+      <div>
+        <input type="radio" name="radio" id="radio3" />
+        <label for="radio3">Переключатель 3</label>
+      </div>
+
+      <label class="title">Флажки</label>
+      <div>
+        <input type="checkbox" name="check" id="check1" />
+        <label for="check1">Флажок 1</label>
+      </div>
+      <div>
+        <input type="checkbox" name="check" id="check2" />
+        <label for="check2">Флажок 2</label>
+      </div>
+      <div>
+        <input type="checkbox" name="check" id="check3" />
+        <label for="check3">Флажок 3</label>
+      </div>
+
+      <label for="textarea" class="title">Текстовая область</label>
+      <textarea name="textarea" id="textarea" cols="30" rows="10"></textarea>
+
+      <input type="submit" value="Отправить" class="submit" />
+    </form>
+  </body>
+</html>

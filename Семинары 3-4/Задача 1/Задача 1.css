@@ -1,0 +1,42 @@
+.tasks-container .tasks-container__heading {
+  margin-top: 16px;
+}
+.tasks-container .tasks-container__heading h4 {
+  width: max-content;
+  padding: 4px 8px;
+}
+.tasks-container.high .tasks-container__heading {
+  background: #ff9898;
+}
+.tasks-container.high .tasks-container__heading h4 {
+  background: #ff3131;
+}
+.tasks-container.high .tasks-container__task {
+  border-left: 4px solid #ff3131;
+}
+.tasks-container.medium .tasks-container__heading {
+  background: #feff98;
+}
+.tasks-container.medium .tasks-container__heading h4 {
+  background: #fff130;
+}
+.tasks-container.medium .tasks-container__task {
+  border-left: 4px solid #fff130;
+}
+.tasks-container.low .tasks-container__heading {
+  background: #a1ff98;
+}
+.tasks-container.low .tasks-container__heading h4 {
+  background: #30ff31;
+}
+.tasks-container.low .tasks-container__task {
+  border-left: 4px solid #30ff31;
+}
+.tasks-container .tasks-container__task {
+  padding: 8px;
+  display: flex;
+  gap: 40px;
+  border-bottom: 2px solid #c4c4c4;
+}
+
+/*# sourceMappingURL=%D0%97%D0%B0%D0%B4%D0%B0%D1%87%D0%B0%201.css.map */

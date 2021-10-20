@@ -1,0 +1,59 @@
+.tasks-container {
+  .tasks-container__heading {
+    margin-top: 16px;
+
+    h4 {
+      width: max-content;
+      padding: 4px 8px;
+    }
+  }
+
+  &.high {
+    .tasks-container__heading {
+      background: #ff9898;
+
+      h4 {
+        background: #ff3131;
+      }
+    }
+
+    .tasks-container__task {
+      border-left: 4px solid #ff3131;
+    }
+  }
+
+  &.medium {
+    .tasks-container__heading {
+      background: #feff98;
+
+      h4 {
+        background: #fff130;
+      }
+    }
+
+    .tasks-container__task {
+      border-left: 4px solid #fff130;
+    }
+  }
+
+  &.low {
+    .tasks-container__heading {
+      background: #a1ff98;
+
+      h4 {
+        background: #30ff31;
+      }
+    }
+
+    .tasks-container__task {
+      border-left: 4px solid #30ff31;
+    }
+  }
+
+  .tasks-container__task {
+    padding: 8px;
+    display: flex;
+    gap: 40px;
+    border-bottom: 2px solid #c4c4c4;
+  }
+}

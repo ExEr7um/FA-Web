@@ -1,0 +1,11 @@
+{
+  "actions" : {
+    "run" : {
+      "enabled" : true,
+      "script" : "#!\/bin\/sh\nnode '\/Users\/exer7um\/Documents\/Университет\/3-й курс\/Технологии разработки web приложений\/Семинары 9-10\/Семинары 9-10.js'"
+    }
+  },
+  "identifier" : "919E6F02-7442-45B5-B05A-E6190B03CAD0",
+  "openLogOnRun" : "start",
+  "persistent" : true
+}

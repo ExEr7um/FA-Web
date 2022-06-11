@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7. Жизненный цикл компонента</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- This element's contents will be replaced with your component. -->
+    </div>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+      class ClickButton extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = { class: "off", label: "Нажми" };
+
+          this.press = this.press.bind(this);
+        }
+
+        press() {
+          let className = this.state.class === "off" ? "on" : "off";
+          this.setState({ class: className });
+        }
+        componentWillReceiveProps(nextProps) {
+          console.log("componentWillReceiveProps()");
+        }
+        render() {
+          return (
+            <button onClick={this.press} className={this.state.class}>
+              {this.state.label}
+            </button>
+          );
+        }
+      }
+
+      class Timer extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = { time: new Date().toLocaleTimeString() };
+        }
+
+        tick() {
+          this.setState((state) => ({
+            time: new Date().toLocaleTimeString(),
+          }));
+        }
+
+        componentDidMount() {
+          this.interval = setInterval(() => this.tick(), 1000);
+        }
+
+        componentWillUnmount() {
+          clearInterval(this.interval);
+        }
+
+        render() {
+          return <div>Текущее время: {this.state.time}</div>;
+        }
+      }
+
+      const propsValues = {
+        title: "Список группы",
+        items: ["Студент 1", "Студент 2", "Студент 3", "Студент 4", "Студент 5", "Студент 6"],
+      };
+
+      class Item extends React.Component {
+        render() {
+          return <li>{this.props.name}</li>;
+        }
+      }
+
+      class SearchPlugin extends React.Component {
+        constructor(props) {
+          super(props);
+          this.onTextChanged = this.onTextChanged.bind(this);
+        }
+
+        onTextChanged(e) {
+          var text = e.target.value.trim(); // удаляем пробелы
+          this.props.filter(text); // передаем введенный текст в родительский компонент
+        }
+
+        render() {
+          return <input placeholder="Поиск" onChange={this.onTextChanged} />;
+        }
+      }
+
+      class ItemsList extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = { items: this.props.data.items };
+
+          this.filterList = this.filterList.bind(this);
+        }
+
+        filterList(text) {
+          var filteredList = this.props.data.items.filter(function (item) {
+            return item.toLowerCase().search(text.toLowerCase()) !== -1;
+          });
+          this.setState({ items: filteredList });
+        }
+
+        render() {
+          return (
+            <div>
+              <h2>{this.props.data.title}</h2>
+              <SearchPlugin filter={this.filterList} />
+              <ul>
+                {this.state.items.map(function (item) {
+                  return <Item key={item} name={item} />;
+                })}
+              </ul>
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(
+        <div>
+          <ClickButton />
+          <Timer />
+          <ItemsList data={propsValues} />
+        </div>,
+        document.getElementById("app")
+      );
+    </script>
+  </body>
+</html>

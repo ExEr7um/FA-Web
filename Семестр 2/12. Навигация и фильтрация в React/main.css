@@ -1,0 +1,23 @@
+.filters {
+  border: 1px solid black;
+  float: left;
+  margin: 0;
+}
+
+.price-input {
+  width: 50px;
+}
+
+.size {
+  display: block;
+}
+
+.good {
+  border: 1px solid black;
+  margin: 10px;
+  float: left;
+  text-align: center;
+}
+.good img {
+  width: 70px;
+}

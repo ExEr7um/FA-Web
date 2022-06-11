@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6. Props, State и состояния</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- This element's contents will be replaced with your component. -->
+    </div>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+      const Hello = (props) => {
+        const { name, age } = props;
+        return (
+          <div>
+            <p>Имя: {name}</p>
+            <p>Возраст: {age}</p>
+          </div>
+        );
+      };
+
+      class ClickButton extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = { class: "off", label: "Нажми" };
+
+          this.press = this.press.bind(this);
+        }
+
+        press() {
+          let className = this.state.class === "off" ? "on" : "off";
+          this.setState({ class: className });
+        }
+        render() {
+          return (
+            <button onClick={this.press} className={this.state.class}>
+              {this.state.label}
+            </button>
+          );
+        }
+      }
+
+      ReactDOM.render(
+        <div>
+          <Hello name="Василий" age="20" />
+          <ClickButton />
+        </div>,
+        document.getElementById("app")
+      );
+    </script>
+  </body>
+</html>

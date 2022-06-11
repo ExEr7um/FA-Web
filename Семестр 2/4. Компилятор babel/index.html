@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4. Компилятор babel</title>
+  </head>
+  <body style="background: black">
+    <div id="root">
+      <!-- This element's contents will be replaced with your component. -->
+    </div>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+      function HelloFunc() {
+        return <h1 style={{ color: "white" }}>Привет из функции</h1>;
+      }
+      const HelloArrow = () => {
+        return <h1 style={{ color: "dodgerblue" }}>Привет из стрелочной функции</h1>;
+      };
+      class HelloClass extends React.Component {
+        render() {
+          return <h1 style={{ color: "red" }}>Привет из класса</h1>;
+        }
+      }
+      class Timer extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = { seconds: 0 };
+        }
+
+        tick() {
+          this.setState((state) => ({
+            seconds: state.seconds + 1,
+          }));
+        }
+
+        componentDidMount() {
+          this.interval = setInterval(() => this.tick(), 1000);
+        }
+
+        componentWillUnmount() {
+          clearInterval(this.interval);
+        }
+
+        render() {
+          return <div style={{ color: "white" }}>Таймер: {this.state.seconds}</div>;
+        }
+      }
+
+      ReactDOM.render(
+        <div>
+          <HelloFunc />
+          <HelloArrow />
+          <HelloClass />
+          <Timer />
+        </div>,
+        document.getElementById("root")
+      );
+    </script>
+  </body>
+</html>
